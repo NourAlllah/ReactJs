@@ -46,7 +46,7 @@ class App extends Component {
     
     //const persons = this.state.persons;  
      const persons = this.state.persons.slice();  
-//const persons = [...this.state.persons];
+    //const persons = [...this.state.persons];
     persons.splice(PersonIndex,1);  
     console.log(persons);
     
@@ -56,8 +56,8 @@ class App extends Component {
   SwitchNamesHandler = (NewName) =>{
       this.setState({
         person: [
-          {name: NewName, age:'50'},
-          {name: NewName, age:'30'},
+          {id: '1112' ,name: NewName, age:'50'},
+          {id: '345' ,name: NewName, age:'30'},
         ]
       })    
   }
@@ -65,8 +65,8 @@ class App extends Component {
   nameChangeHandler = (event) =>{
     this.setState({
       person: [
-        {name: event.target.value , age:'50'},
-        {name: 'Mohsen', age:'30'},
+        {id:'1112',name: event.target.value , age:'50'},
+        {id:'345',name: 'Mohsen', age:'30'},
       ]
     })  
   }
@@ -84,7 +84,7 @@ class App extends Component {
         <div>
           {
             this.state.persons.map( (person,index) => {
-              return  <Person name={person.name} age={person.age} click={ () => this.DeletePerosn(index)} />
+              return  <Person key={person.id} name={person.name} age={person.age} click={ () => this.DeletePerosn(index)}  />
 
             })
           }
