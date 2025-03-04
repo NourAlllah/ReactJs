@@ -35,8 +35,11 @@ class App extends Component {
 
   state ={
     persons:[
-      {name:'Nour', age:'26'},
-      {name:'Mohsen', age:'28'},
+      {id: 'N-26',name:'Nour', age:'26'},
+      {id: 'M-28',name:'Mohsen', age:'28'},
+      {id: 'M-22',name:'Menna', age:'22'},
+      {id: 'M-56',name:'Mama', age:'56'},
+      {id: 'B-60',name:'Baba', age:'60'}
     ],
     showPersons : false
   }
@@ -84,7 +87,10 @@ class App extends Component {
         <div>
           {
             this.state.persons.map( (person,index) => {
-              return  <Person key={person.id} name={person.name} age={person.age} click={ () => this.DeletePerosn(index)}  />
+              return  <Person key={person.id} 
+              name={person.name} 
+              age={person.age} 
+              click={ () => this.DeletePerosn(index)}  />
 
             })
           }
@@ -105,7 +111,6 @@ class App extends Component {
        {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> */}
        <button onClick={ this.TogglePeronsDivs }>Toggle persons</button>
        {persons}
-
       </div>
     );
   }
