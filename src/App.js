@@ -59,19 +59,28 @@ class App extends Component {
   SwitchNamesHandler = (NewName) =>{
       this.setState({
         person: [
-          {id: '1112' ,name: NewName, age:'50'},
-          {id: '345' ,name: NewName, age:'30'},
+          {id: 'N-26',name:NewName, age:'26'},
+        {id: 'M-28',name:NewName, age:'28'},
+        {id: 'M-22',name:NewName, age:'22'},
+        {id: 'M-56',name:NewName, age:'56'},
+        {id: 'B-60',name:NewName, age:'60'}
         ]
       })    
   }
 
-  nameChangeHandler = (event) =>{
-    this.setState({
-      person: [
-        {id:'1112',name: event.target.value , age:'50'},
-        {id:'345',name: 'Mohsen', age:'30'},
-      ]
-    })  
+  nameChangeHandler = (event , id) =>{
+    const PersonIndex = this.state.persons.findIndex( p => {
+      return p.id === id;
+    });
+    const person = {...this.state.persons[PersonIndex]};
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+
+    persons[PersonIndex]=person;
+
+    this.setState({persons: persons});
   }
 
   TogglePeronsDivs = () =>{
@@ -90,7 +99,8 @@ class App extends Component {
               return  <Person key={person.id} 
               name={person.name} 
               age={person.age} 
-              click={ () => this.DeletePerosn(index)}  />
+              click={ () => this.DeletePerosn(index)} 
+              changed={(event) => this.nameChangeHandler(event , person.id)} />
 
             })
           }
