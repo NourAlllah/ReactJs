@@ -33,7 +33,8 @@ class App extends Component {
     } 
   */
 
-  state ={
+  // 4-Working with lists and condetionals
+  /*  state ={
     persons:[
       {id: 'N-26',name:'Nour', age:'26'},
       {id: 'M-28',name:'Mohsen', age:'28'},
@@ -104,23 +105,34 @@ class App extends Component {
 
             })
           }
-            {/* <Person 
-            name={this.state.person[0].name}  
-            age={this.state.person[0].age}
-            click={this.SwitchNamesHandler.bind(this,'Taaaatttaaaaatttaaaaa')}
-            changed={this.nameChangeHandler}
-            />
-            <Person name={this.state.person[1].name} age={this.state.person[1].age}/>
-            <Person name="swsn" age="26">bew bew bew </Person> */}
+            {/* 
+              <Person 
+                name={this.state.person[0].name}  
+                age={this.state.person[0].age}
+                click={this.SwitchNamesHandler.bind(this,'Taaaatttaaaaatttaaaaa')}
+                changed={this.nameChangeHandler}
+                />
+                <Person name={this.state.person[1].name} age={this.state.person[1].age}/>
+                <Person name="swsn" age="26">bew bew bew </Person> 
+            //}
           </div>
       );
     }
     return (
       <div className="App">
        <div>hiiiiiiiiiiiiiiiiii</div>
-       {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> */}
-       <button onClick={ this.TogglePeronsDivs }>Toggle persons</button>
-       {persons}
+          {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> //}
+              <button onClick={ this.TogglePeronsDivs }>Toggle persons</button>
+              {persons}
+              </div>
+            );
+  } */
+
+  // Assigment 4-Working with lists and condetionals
+  render(){
+    return (
+      <div className='App'>
+
       </div>
     );
   }
