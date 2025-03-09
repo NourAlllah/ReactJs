@@ -3,7 +3,7 @@ import './App.css';
 
 // import UserOutput from './UserOutput/UserOutput';
 // import UserInput from './UseerInput/UserInput';
- import Person from './Person/person';
+// import Person from './Person/person';
 
 
 
@@ -129,10 +129,22 @@ class App extends Component {
   } */
 
   // Assigment 4-Working with lists and condetionals
+
+   state ={
+    userInput: ''
+   }
+
+   changeInputHandler = (event) => {
+    this.setState({
+      userInput: event.target.value
+    });
+  }
   render(){
+
     return (
       <div className='App'>
-
+        <input type='text' onChange={this.changeInputHandler} value={this.userInput}/>
+        <p>{this.state.userInput}</p>
       </div>
     );
   }
