@@ -4,7 +4,7 @@ import './App.css';
 // import UserOutput from './UserOutput/UserOutput';
 // import UserInput from './UseerInput/UserInput';
 // import Person from './Person/person';
-
+import Validation from './Validation/Validation';
 
 
 class App extends Component {
@@ -145,6 +145,7 @@ class App extends Component {
       <div className='App'>
         <input type='text' onChange={this.changeInputHandler} value={this.userInput}/>
         <p>{this.state.userInput}</p>
+        <Validation inputLenght={this.state.userInput.length} />
       </div>
     );
   }
