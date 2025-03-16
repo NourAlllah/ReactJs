@@ -5,7 +5,7 @@ import './App.css';
 // import UserInput from './UseerInput/UserInput';
 // import Person from './Person/person';
 import Validation from './Validation/Validation';
-
+import Char from './Char/Char';
 
 class App extends Component {
 
@@ -138,14 +138,26 @@ class App extends Component {
     this.setState({
       userInput: event.target.value
     });
-  }
+   } 
+  
+   deleteCharHandler = (index) => {
+    const text = this.state.userInput.split('');
+    text.splice(index,1);
+    const UpdatedText = text.join('');
+
+    this.setState({ userInput:UpdatedText});
+   }
   render(){
+    const CharList = this.state.userInput.split('').map((ch,index )=> {
+      return <Char  character={ch} key={index}  clicked={()=>this.deleteCharHandler(index)}/>
+    });
 
     return (
       <div className='App'>
         <input type='text' onChange={this.changeInputHandler} value={this.userInput}/>
         <p>{this.state.userInput}</p>
         <Validation inputLenght={this.state.userInput.length} />
+        {CharList}
       </div>
     );
   }
