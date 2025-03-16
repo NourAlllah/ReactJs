@@ -3,9 +3,9 @@ import './App.css';
 
 // import UserOutput from './UserOutput/UserOutput';
 // import UserInput from './UseerInput/UserInput';
-// import Person from './Person/person';
-import Validation from './Validation/Validation';
-import Char from './Char/Char';
+import Person from './Person/person';
+//import Validation from './Validation/Validation';
+// import Char from './Char/Char';
 
 class App extends Component {
 
@@ -34,7 +34,7 @@ class App extends Component {
   */
 
   // 4-Working with lists and condetionals
-  /*  state ={
+  state ={
     persons:[
       {id: 'N-26',name:'Nour', age:'26'},
       {id: 'M-28',name:'Mohsen', age:'28'},
@@ -90,23 +90,32 @@ class App extends Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
 
     let persons = null;
+
     if ( this.state.showPersons ) {
       persons = (
         <div>
-          {
-            this.state.persons.map( (person,index) => {
-              return  <Person key={person.id} 
-              name={person.name} 
-              age={person.age} 
-              click={ () => this.DeletePerosn(index)} 
-              changed={(event) => this.nameChangeHandler(event , person.id)} />
+            {
+              this.state.persons.map( (person,index) => {
+                return  <Person key={person.id} 
+                name={person.name} 
+                age={person.age} 
+                click={ () => this.DeletePerosn(index)} 
+                changed={(event) => this.nameChangeHandler(event , person.id)} />
 
-            })
-          }
-            {/* 
-              <Person 
+              })
+            }
+            
+              {/* <Person 
                 name={this.state.person[0].name}  
                 age={this.state.person[0].age}
                 click={this.SwitchNamesHandler.bind(this,'Taaaatttaaaaatttaaaaa')}
@@ -114,23 +123,34 @@ class App extends Component {
                 />
                 <Person name={this.state.person[1].name} age={this.state.person[1].age}/>
                 <Person name="swsn" age="26">bew bew bew </Person> 
-            //}
-          </div>
+              */}
+        </div>
       );
+      style.backgroundColor = "red";
     }
+    const classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
+    }
+
+    
     return (
       <div className="App">
-       <div>hiiiiiiiiiiiiiiiiii</div>
-          {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> //}
-              <button onClick={ this.TogglePeronsDivs }>Toggle persons</button>
+       <h1> Hiiiiiiiiiiiiiiiiii , I am React App </h1>
+       <p className={classes.join(' ')}> This is really working </p>
+           {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> */} 
+              <button onClick={ this.TogglePeronsDivs } style={style}>Toggle persons</button>
               {persons}
               </div>
             );
-  } */
+    }
 
   // Assigment 4-Working with lists and condetionals
 
-   state ={
+  /*  state ={
     userInput: ''
    }
 
@@ -160,7 +180,7 @@ class App extends Component {
         {CharList}
       </div>
     );
-  }
+  } */
 }
 
 export default App;
