@@ -1,11 +1,14 @@
 import React, { Component /* ,  useState */ } from 'react';
 import './App.css';
+import Radium , {StyleRoot} from 'radium';
 
 // import UserOutput from './UserOutput/UserOutput';
 // import UserInput from './UseerInput/UserInput';
 import Person from './Person/person';
 //import Validation from './Validation/Validation';
 // import Char from './Char/Char';
+
+
 
 class App extends Component {
 
@@ -96,7 +99,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor : 'yellow',
+        color : 'grey'
+      }
     }
 
     let persons = null;
@@ -127,6 +134,7 @@ class App extends Component {
         </div>
       );
       style.backgroundColor = "red";
+      style[':hover'].backgroundColor = "pink";
     }
     const classes = [];
     if (this.state.persons.length <= 2) {
@@ -138,6 +146,7 @@ class App extends Component {
 
     
     return (
+      <StyleRoot>
       <div className="App">
        <h1> Hiiiiiiiiiiiiiiiiii , I am React App </h1>
        <p className={classes.join(' ')}> This is really working </p>
@@ -145,6 +154,7 @@ class App extends Component {
               <button onClick={ this.TogglePeronsDivs } style={style}>Toggle persons</button>
               {persons}
               </div>
+              </StyleRoot>
             );
     }
 
@@ -183,7 +193,7 @@ class App extends Component {
   } */
 }
 
-export default App;
+export default Radium(App);
 
 
 
