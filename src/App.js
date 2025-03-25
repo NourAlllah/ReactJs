@@ -1,6 +1,6 @@
 import React, { Component /* ,  useState */ } from 'react';
-import './App.css';
-import Radium , {StyleRoot} from 'radium';
+import  classes from './App.css';
+/* import Radium , {StyleRoot} from 'radium'; */
 
 // import UserOutput from './UserOutput/UserOutput';
 // import UserInput from './UseerInput/UserInput';
@@ -93,19 +93,7 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor : 'yellow',
-        color : 'grey'
-      }
-    }
-
+    
     let persons = null;
 
     if ( this.state.showPersons ) {
@@ -133,28 +121,25 @@ class App extends Component {
               */}
         </div>
       );
-      style.backgroundColor = "red";
-      style[':hover'].backgroundColor = "pink";
+      
     }
-    const classes = [];
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push('red');
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push('bold');
     }
 
     
     return (
-      <StyleRoot>
       <div className="App">
-       <h1> Hiiiiiiiiiiiiiiiiii , I am React App </h1>
-       <p className={classes.join(' ')}> This is really working </p>
+        <h1> Hiiiiiiiiiiiiiiiiii , I am React App </h1>
+        <p className={assignedClasses.join(' ')}> This is really working </p>
            {/* <button onClick={ () => this.SwitchNamesHandler('Heheheheeheh')}>switch names</button> */} 
-              <button onClick={ this.TogglePeronsDivs } style={style}>Toggle persons</button>
-              {persons}
-              </div>
-              </StyleRoot>
+          <button onClick={ this.TogglePeronsDivs } /* style={classes.btn_toggle} */ className={classes.btn_toggle}>Toggle persons</button>
+          {persons}
+        </div>
             );
     }
 
@@ -193,7 +178,7 @@ class App extends Component {
   } */
 }
 
-export default Radium(App);
+export default /* Radium(App) */ App;
 
 
 
